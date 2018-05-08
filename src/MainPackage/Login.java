@@ -32,7 +32,7 @@ import javax.swing.JInternalFrame;
 public class Login extends javax.swing.JFrame {
 
     //instance Variables
-    static Connection con;
+    public static Connection con;
     
     /**
      * Creates new form Login
