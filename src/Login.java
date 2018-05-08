@@ -200,19 +200,17 @@ public class Login extends javax.swing.JFrame {
 
     private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
         // TODO add your handling code here:
-        
-        //Testing phase - this launches the main window when login is pressed
-        new HomeScreen().setVisible(true);
+       
                 
-            
-        
         String username = UsernameTextField.getText();
         String password = PasswordTextField.getText();
 
         String loginQuery = "SELECT * FROM Staff HAVING Username='" + username + "'";
+        
 
         QueryExecuter qe = new QueryExecuter();
         ResultSet rs = qe.runQuery(con, loginQuery);
+
 
         try {
             if(rs.isBeforeFirst()){
@@ -220,23 +218,30 @@ public class Login extends javax.swing.JFrame {
                     String pw = rs.getString("Password");
                     if(password.equals(pw)){
                         //if successful login get level
-                        System.out.print("Success!");
+                        System.out.println("Success!");
+                        System.out.println("Opening main frame....");
+                        //Testing phase - this launches the main window when login is pressed
+                        new HomeScreen().setVisible(true);
+                        //Login.setVisi
                         int level = rs.getInt("Level");
 
                         // determine staff level and create windows
                         if(level == 3){
+                            System.out.println("level 3");
                             LevelThree l3 = new LevelThree(level);
                             jLayeredPane2.add(l3);
                             l3.moveToFront();
                             l3.show();
                         }
                         else if(level == 2){
+                            System.out.println("level 2");
                             LevelTwo l2 = new LevelTwo();
                             jLayeredPane2.add(l2);
                             l2.moveToFront();
                             l2.show();
                         }
                         else if(level == 1){
+                            System.out.println("level 1");
                             LevelOne l1 = new LevelOne();
                             jLayeredPane2.add(l1);
                             l1.moveToFront();
