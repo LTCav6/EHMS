@@ -68,7 +68,7 @@ public class LevelThree extends javax.swing.JInternalFrame {
         jLabel47 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         PatientTable = new javax.swing.JTable();
-        jButton10 = new javax.swing.JButton();
+        btnDeletePatient = new javax.swing.JButton();
         btnAddPatient = new javax.swing.JButton();
         jPanelAddEmployee = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -95,27 +95,15 @@ public class LevelThree extends javax.swing.JInternalFrame {
         EmployeeTable = new javax.swing.JTable();
         btnEmployeeAdd = new javax.swing.JButton();
         btnEmployeeRemove = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jPanelMyFiles = new javax.swing.JPanel();
-        jLabel32 = new javax.swing.JLabel();
-        jTextField25 = new javax.swing.JTextField();
-        jTextField26 = new javax.swing.JTextField();
-        jTextField27 = new javax.swing.JTextField();
-        jTextField28 = new javax.swing.JTextField();
-        jTextField29 = new javax.swing.JTextField();
-        jTextField30 = new javax.swing.JTextField();
-        jLabel33 = new javax.swing.JLabel();
-        jLabel34 = new javax.swing.JLabel();
-        jLabel35 = new javax.swing.JLabel();
-        jLabel36 = new javax.swing.JLabel();
-        jLabel37 = new javax.swing.JLabel();
+        jPanelTerminal = new javax.swing.JPanel();
         jButton8 = new javax.swing.JButton();
-        jLabel38 = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        textTerminal = new javax.swing.JTextArea();
+        btnRunTerminal = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         jPanelBtns = new javax.swing.JPanel();
         btnPatients = new javax.swing.JButton();
-        btnRecords = new javax.swing.JButton();
         btnDirectory = new javax.swing.JButton();
         btnEmployee = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -329,10 +317,10 @@ public class LevelThree extends javax.swing.JInternalFrame {
         });
         jScrollPane2.setViewportView(PatientTable);
 
-        jButton10.setText("Delete");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
+        btnDeletePatient.setText("Delete");
+        btnDeletePatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
+                btnDeletePatientActionPerformed(evt);
             }
         });
 
@@ -358,9 +346,9 @@ public class LevelThree extends javax.swing.JInternalFrame {
                         .addGap(0, 46, Short.MAX_VALUE)
                         .addComponent(jButton7))
                     .addGroup(jPanelPatientsLayout.createSequentialGroup()
-                        .addGroup(jPanelPatientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanelPatientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnAddPatient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btnDeletePatient, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -373,8 +361,8 @@ public class LevelThree extends javax.swing.JInternalFrame {
                         .addComponent(jButton7)
                         .addGap(18, 18, 18)
                         .addComponent(btnAddPatient)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnDeletePatient)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanelPatientsLayout.createSequentialGroup()
                         .addComponent(jLabel47)
@@ -583,16 +571,12 @@ public class LevelThree extends javax.swing.JInternalFrame {
             }
         });
 
-        btnEmployeeRemove.setText("Remove");
+        btnEmployeeRemove.setText("Delete");
         btnEmployeeRemove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEmployeeRemoveActionPerformed(evt);
             }
         });
-
-        jButton4.setText("Modify");
-
-        jButton9.setText("Refresh");
 
         javax.swing.GroupLayout jPanelDirectoryLayout = new javax.swing.GroupLayout(jPanelDirectory);
         jPanelDirectory.setLayout(jPanelDirectoryLayout);
@@ -604,18 +588,16 @@ public class LevelThree extends javax.swing.JInternalFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 701, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanelDirectoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton6, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanelDirectoryLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanelDirectoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanelDirectoryLayout.createSequentialGroup()
-                                .addGroup(jPanelDirectoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnEmployeeAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnEmployeeRemove))
-                                .addGap(0, 1, Short.MAX_VALUE))
-                            .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap())
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                        .addComponent(jButton6)
+                        .addContainerGap())
+                    .addGroup(jPanelDirectoryLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanelDirectoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnEmployeeAdd, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
+                            .addComponent(btnEmployeeRemove, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanelDirectoryLayout.setVerticalGroup(
             jPanelDirectoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -627,11 +609,7 @@ public class LevelThree extends javax.swing.JInternalFrame {
                         .addGap(16, 16, 16)
                         .addComponent(btnEmployeeAdd)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnEmployeeRemove)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton9))
+                        .addComponent(btnEmployeeRemove))
                     .addGroup(jPanelDirectoryLayout.createSequentialGroup()
                         .addComponent(jLabel31)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -642,54 +620,8 @@ public class LevelThree extends javax.swing.JInternalFrame {
         jLayeredPaneMainWindow.add(jPanelDirectory, "card3");
 
         jPanelAddEmployee.setVisible(false);
-        jPanelMyFiles.setBackground(new java.awt.Color(204, 204, 204));
-        jPanelMyFiles.setEnabled(false);
-
-        jLabel32.setText("Last Name");
-
-        jTextField25.setEditable(false);
-        jTextField25.setText("Cavanaugh");
-        jTextField25.setEnabled(false);
-        jTextField25.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField25ActionPerformed(evt);
-            }
-        });
-
-        jTextField26.setText("Luke");
-        jTextField26.setEnabled(false);
-        jTextField26.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField26ActionPerformed(evt);
-            }
-        });
-
-        jTextField27.setText("Level 1");
-        jTextField27.setEnabled(false);
-
-        jTextField28.setText("081934");
-        jTextField28.setEnabled(false);
-
-        jTextField29.setText("Admin");
-        jTextField29.setEnabled(false);
-
-        jTextField30.setText("4-6-2018");
-        jTextField30.setEnabled(false);
-        jTextField30.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField30ActionPerformed(evt);
-            }
-        });
-
-        jLabel33.setText("First Name");
-
-        jLabel34.setText("Title");
-
-        jLabel35.setText("Employee ID");
-
-        jLabel36.setText("Login Time");
-
-        jLabel37.setText("Level");
+        jPanelTerminal.setBackground(new java.awt.Color(204, 204, 204));
+        jPanelTerminal.setEnabled(false);
 
         jButton8.setText("X");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
@@ -698,97 +630,69 @@ public class LevelThree extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel38.setText("Administration Notices:");
+        jLabel39.setText("SQL Terminal");
 
-        jLabel39.setText("My Files");
+        textTerminal.setColumns(20);
+        textTerminal.setRows(5);
+        jScrollPane3.setViewportView(textTerminal);
 
-        javax.swing.GroupLayout jPanelMyFilesLayout = new javax.swing.GroupLayout(jPanelMyFiles);
-        jPanelMyFiles.setLayout(jPanelMyFilesLayout);
-        jPanelMyFilesLayout.setHorizontalGroup(
-            jPanelMyFilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelMyFilesLayout.createSequentialGroup()
-                .addGroup(jPanelMyFilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelMyFilesLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanelMyFilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelMyFilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel33, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)
-                                .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel37, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel36, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel35, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelMyFilesLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(4, 4, 4)))
-                .addGroup(jPanelMyFilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelMyFilesLayout.createSequentialGroup()
-                        .addGroup(jPanelMyFilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField30, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelMyFilesLayout.createSequentialGroup()
-                        .addGroup(jPanelMyFilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField25)
-                            .addComponent(jTextField26)
-                            .addComponent(jTextField28)
-                            .addComponent(jTextField29, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 521, Short.MAX_VALUE)
+        btnRunTerminal.setText("Run");
+        btnRunTerminal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRunTerminalActionPerformed(evt);
+            }
+        });
+
+        jButton4.setText("Clear");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelTerminalLayout = new javax.swing.GroupLayout(jPanelTerminal);
+        jPanelTerminal.setLayout(jPanelTerminalLayout);
+        jPanelTerminalLayout.setHorizontalGroup(
+            jPanelTerminalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelTerminalLayout.createSequentialGroup()
+                .addContainerGap(28, Short.MAX_VALUE)
+                .addGroup(jPanelTerminalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelTerminalLayout.createSequentialGroup()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 696, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanelTerminalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnRunTerminal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE))
+                        .addGap(0, 8, Short.MAX_VALUE))
+                    .addGroup(jPanelTerminalLayout.createSequentialGroup()
+                        .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton8)))
                 .addContainerGap())
         );
-        jPanelMyFilesLayout.setVerticalGroup(
-            jPanelMyFilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelMyFilesLayout.createSequentialGroup()
+        jPanelTerminalLayout.setVerticalGroup(
+            jPanelTerminalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelTerminalLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanelMyFilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelMyFilesLayout.createSequentialGroup()
-                        .addComponent(jLabel39)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanelMyFilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel32)
-                            .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel38)))
+                .addGroup(jPanelTerminalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel39)
                     .addComponent(jButton8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanelMyFilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel33)
-                    .addComponent(jTextField26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanelMyFilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel35)
-                    .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addGroup(jPanelMyFilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel34)
-                    .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanelMyFilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel37)
-                    .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanelMyFilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel36)
-                    .addComponent(jTextField30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(187, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanelTerminalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanelTerminalLayout.createSequentialGroup()
+                        .addComponent(btnRunTerminal)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton4)))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
-        jLayeredPaneMainWindow.add(jPanelMyFiles, "card3");
+        jLayeredPaneMainWindow.add(jPanelTerminal, "card3");
 
         btnPatients.setText("Patients");
         btnPatients.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPatientsActionPerformed(evt);
-            }
-        });
-
-        btnRecords.setText("Records");
-        btnRecords.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRecordsActionPerformed(evt);
             }
         });
 
@@ -812,31 +716,22 @@ public class LevelThree extends javax.swing.JInternalFrame {
         jPanelBtnsLayout.setHorizontalGroup(
             jPanelBtnsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBtnsLayout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanelBtnsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelBtnsLayout.createSequentialGroup()
-                        .addGroup(jPanelBtnsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnRecords, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBtnsLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(jPanelBtnsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnPatients, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnDirectory, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(btnPatients, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDirectory, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEmployee, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         jPanelBtnsLayout.setVerticalGroup(
             jPanelBtnsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBtnsLayout.createSequentialGroup()
                 .addComponent(btnPatients, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnRecords, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnDirectory, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(184, Short.MAX_VALUE))
+                .addContainerGap(237, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -955,25 +850,13 @@ public class LevelThree extends javax.swing.JInternalFrame {
         jPanelAddPatient.setVisible(false);
         jPanelAddEmployee.setVisible(false);
         jPanelDirectory.setVisible(false);
-        jPanelMyFiles.setVisible(false);
+        jPanelTerminal.setVisible(false);
         //jPanelWelcome.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void jTextField25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField25ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField25ActionPerformed
-
-    private void jTextField26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField26ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField26ActionPerformed
-
-    private void jTextField30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField30ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField30ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
@@ -985,7 +868,7 @@ public class LevelThree extends javax.swing.JInternalFrame {
         jPanelAddPatient.setVisible(false);
         jPanelAddEmployee.setVisible(false);
         jPanelDirectory.setVisible(false);
-        jPanelMyFiles.setVisible(false);
+        jPanelTerminal.setVisible(false);
         jPanelWelcome.setVisible(false);
         String patientQuery = "SELECT * FROM Patients;";
 
@@ -1055,23 +938,13 @@ public class LevelThree extends javax.swing.JInternalFrame {
         LevelThree.string = string;
     }
 
-    private void btnRecordsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecordsActionPerformed
-        // TODO add your handling code here:
-        jPanelPatients.setVisible(false);
-        jPanelAddPatient.setVisible(true);
-        jPanelAddEmployee.setVisible(false);
-        jPanelDirectory.setVisible(false);
-        jPanelMyFiles.setVisible(false);
-        jPanelWelcome.setVisible(false);
-    }//GEN-LAST:event_btnRecordsActionPerformed
-
     private void btnDirectoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDirectoryActionPerformed
         // TODO add your handling code here:
         jPanelPatients.setVisible(false);
         jPanelAddPatient.setVisible(false);
         jPanelAddEmployee.setVisible(false);
         jPanelDirectory.setVisible(true);
-        jPanelMyFiles.setVisible(false);
+        jPanelTerminal.setVisible(false);
         jPanelWelcome.setVisible(false);
 
         String firstnameQuery = "SELECT * FROM Staff;";
@@ -1123,12 +996,12 @@ public class LevelThree extends javax.swing.JInternalFrame {
 
     private void btnEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmployeeActionPerformed
         // TODO add your handling code here:
-//        jPanelPatients.setVisible(false);
-//        jPanelRecords.setVisible(false);
-//        jPanelAddEmployee.setVisible(true);
-//        jPanelDirectory.setVisible(false);
-//        jPanelMyFiles.setVisible(false);
-//        jPanelWelcome.setVisible(false);
+        jPanelPatients.setVisible(false);
+        //jPanelRecords.setVisible(false);
+        jPanelTerminal.setVisible(true);
+        jPanelDirectory.setVisible(false);
+        //jPanelMyFiles.setVisible(false);
+        jPanelWelcome.setVisible(false);
         //        JPanel employeePanel = new JPanel();
         //        employeePanel.setBounds(10, 10, 10, 10);
         //        jPanel2.add(employeePanel);
@@ -1151,7 +1024,7 @@ public class LevelThree extends javax.swing.JInternalFrame {
         jPanelAddPatient.setVisible(false);
         jPanelAddEmployee.setVisible(false);
         jPanelDirectory.setVisible(false);
-        jPanelMyFiles.setVisible(false);
+        jPanelTerminal.setVisible(false);
         jLayeredPaneMainWindow.setVisible(true);
         //jPanelWelcome.setVisible(false);
 
@@ -1168,7 +1041,7 @@ public class LevelThree extends javax.swing.JInternalFrame {
         jPanelAddPatient.setVisible(false);
         jPanelAddEmployee.setVisible(true);
         jPanelDirectory.setVisible(false);
-        jPanelMyFiles.setVisible(false);
+        jPanelTerminal.setVisible(false);
         jPanelWelcome.setVisible(false);
 
 ////        if (EmployeeTable.getSelectedRow() != -1) {
@@ -1203,14 +1076,37 @@ public class LevelThree extends javax.swing.JInternalFrame {
 ////        }
     }//GEN-LAST:event_btnEmployeeAddActionPerformed
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+    private void btnDeletePatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletePatientActionPerformed
         // TODO add your handling code here:
+        // TODO add your handling code here:
+
         if (PatientTable.getSelectedRow() != -1) {
             // remove selected row from the model
-            patientModel.removeRow(PatientTable.getSelectedRow());
-            System.out.println("row should be removed");
+            //patientModel.removeRow(PatientTable.getSelectedRow());
+
+            // remove selected row from the model
+            int valrow = PatientTable.getSelectedRow();
+
+            Object objID = PatientTable.getValueAt(valrow, 0);
+
+            try {
+                // TODO add your handling code here:
+                // create a Statement from the connection
+                Statement statement = con.createStatement();
+                String removePatientQuery = "DELETE FROM Patients WHERE PatientID = " + objID.toString() + ";";
+                //String test = textAddFirstName.getText();
+                System.out.println("DELETE FROM Patients WHERE PatientID = " + objID.toString() + ";");
+                statement.executeUpdate(removePatientQuery);
+                System.out.println("Executed");
+            } catch (SQLException ex) {
+                Logger.getLogger(LevelThree.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            //QueryExecuter de = new QueryExecuter();
+            //ResultSet rs = de.runQuery(con, addUserQuery);
+            //System.out.println(rs.toString());
+
         }
-    }//GEN-LAST:event_jButton10ActionPerformed
+    }//GEN-LAST:event_btnDeletePatientActionPerformed
 
     private void btnEmployeeRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmployeeRemoveActionPerformed
         // TODO add your handling code here:
@@ -1227,17 +1123,29 @@ public class LevelThree extends javax.swing.JInternalFrame {
             Object objLevel = EmployeeTable.getValueAt(valrow, 5);
             Object objUsername = EmployeeTable.getValueAt(valrow, 6);
 
-            System.out.print(objID.toString());
-            System.out.print(objfName.toString());
-            System.out.print(objlName.toString());
-            System.out.print(objSignedIn.toString());
-            System.out.print(objTitle.toString());
-            System.out.print(objLevel.toString());
-            System.out.println(objUsername.toString());
+//            System.out.print(objID.toString());
+//            System.out.print(objfName.toString());
+//            System.out.print(objlName.toString());
+//            System.out.print(objSignedIn.toString());
+//            System.out.print(objTitle.toString());
+//            System.out.print(objLevel.toString());
+//            System.out.println(objUsername.toString());
+            System.out.println("DELETE FROM Staff WHERE StaffID = " + objID.toString() + ";");
+            ////////////////////////////////////////////////////////////////////////////////////////
+            try {
+                // TODO add your handling code here:
+                // create a Statement from the connection
+                Statement statement = con.createStatement();
+                String removeUserQuery = "DELETE FROM Staff WHERE StaffID = " + objID.toString() + ";";
+                //String test = textAddFirstName.getText();
+                System.out.println("DELETE FROM Staff WHERE StaffID = " + objID.toString() + ";");
+                statement.executeUpdate(removeUserQuery);
+                System.out.println("Executed");
+            } catch (SQLException ex) {
+                Logger.getLogger(LevelThree.class.getName()).log(Level.SEVERE, null, ex);
+            }
 
-            System.out.println("DELETE FROM Staff" + "\n" + "WHERE StaffID = " + objID.toString() + ";");
-
-            employeeModel.removeRow(EmployeeTable.getSelectedRow());
+            //employeeModel.removeRow(EmployeeTable.getSelectedRow());
             System.out.println("row should be removed");
 
         }
@@ -1335,7 +1243,7 @@ public class LevelThree extends javax.swing.JInternalFrame {
         jPanelAddPatient.setVisible(true);
         jPanelAddEmployee.setVisible(false);
         jPanelDirectory.setVisible(false);
-        jPanelMyFiles.setVisible(false);
+        jPanelTerminal.setVisible(false);
         jPanelWelcome.setVisible(false);
 
     }//GEN-LAST:event_btnAddPatientActionPerformed
@@ -1344,12 +1252,39 @@ public class LevelThree extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_textAddGenderActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        textTerminal.setText("");
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void btnRunTerminalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRunTerminalActionPerformed
+//        // TODO add your handling code here:
+//        String terminalQuery = textTerminal.getText();
+//        System.out.println(terminalQuery);
+//        Statement statement;
+//        try {
+//            statement = con.createStatement();
+//            statement.executeUpdate(terminalQuery);
+//        } catch (SQLException ex) {
+//            System.out.println("Caught!");
+//        QueryExecuter de = new QueryExecuter();
+//        ResultSet rs = de.runQuery(con, terminalQuery);
+//        textTerminal.setText(rs);
+//            Logger.getLogger(LevelThree.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        
+//       
+//        
+//        
+    }//GEN-LAST:event_btnRunTerminalActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable EmployeeTable;
     private javax.swing.JTable PatientTable;
     private javax.swing.JButton btnAddPatient;
     private javax.swing.JMenuItem btnCloseAll;
+    private javax.swing.JButton btnDeletePatient;
     private javax.swing.JButton btnDirectory;
     private javax.swing.JMenu btnEdit;
     private javax.swing.JButton btnEmployee;
@@ -1359,17 +1294,15 @@ public class LevelThree extends javax.swing.JInternalFrame {
     private javax.swing.JMenu btnFile;
     private javax.swing.JMenuItem btnLogout;
     private javax.swing.JButton btnPatients;
-    private javax.swing.JButton btnRecords;
+    private javax.swing.JButton btnRunTerminal;
     private javax.swing.JButton btnSavePatient;
     private javax.swing.JButton btnSaveUser;
-    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1381,13 +1314,6 @@ public class LevelThree extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel47;
@@ -1404,17 +1330,12 @@ public class LevelThree extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanelAddPatient;
     private javax.swing.JPanel jPanelBtns;
     private javax.swing.JPanel jPanelDirectory;
-    private javax.swing.JPanel jPanelMyFiles;
     private javax.swing.JPanel jPanelPatients;
+    private javax.swing.JPanel jPanelTerminal;
     private javax.swing.JPanel jPanelWelcome;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField25;
-    private javax.swing.JTextField jTextField26;
-    private javax.swing.JTextField jTextField27;
-    private javax.swing.JTextField jTextField28;
-    private javax.swing.JTextField jTextField29;
-    private javax.swing.JTextField jTextField30;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextField textAddAge;
     private javax.swing.JTextField textAddAllergies;
     private javax.swing.JTextField textAddEmail;
@@ -1429,5 +1350,6 @@ public class LevelThree extends javax.swing.JInternalFrame {
     private javax.swing.JTextField textAddPhysician;
     private javax.swing.JTextField textAddTitle;
     private javax.swing.JTextField textAddUsername;
+    private javax.swing.JTextArea textTerminal;
     // End of variables declaration//GEN-END:variables
 }
