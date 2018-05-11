@@ -4,6 +4,7 @@ import MainPackage.QueryExecuter;
 import java.sql.ResultSet;
 import MainPackage.Login;
 import static MainPackage.Login.con;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -105,13 +106,15 @@ public class LevelThree extends javax.swing.JInternalFrame {
         jPanelBtns = new javax.swing.JPanel();
         btnPatients = new javax.swing.JButton();
         btnDirectory = new javax.swing.JButton();
-        btnEmployee = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         btnFile = new javax.swing.JMenu();
         btnLogout = new javax.swing.JMenuItem();
         btnCloseAll = new javax.swing.JMenuItem();
+        btnMenuCheckIn = new javax.swing.JMenuItem();
+        btnMenuCheckout = new javax.swing.JMenuItem();
         btnExit = new javax.swing.JMenuItem();
         btnEdit = new javax.swing.JMenu();
+        btnMenuTerminal = new javax.swing.JMenuItem();
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -703,14 +706,6 @@ public class LevelThree extends javax.swing.JInternalFrame {
             }
         });
 
-        btnEmployee.setText("Employee");
-        btnEmployee.setToolTipText("");
-        btnEmployee.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEmployeeActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanelBtnsLayout = new javax.swing.GroupLayout(jPanelBtns);
         jPanelBtns.setLayout(jPanelBtnsLayout);
         jPanelBtnsLayout.setHorizontalGroup(
@@ -719,8 +714,7 @@ public class LevelThree extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanelBtnsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnPatients, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnDirectory, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEmployee, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnDirectory, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         jPanelBtnsLayout.setVerticalGroup(
@@ -729,9 +723,7 @@ public class LevelThree extends javax.swing.JInternalFrame {
                 .addComponent(btnPatients, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnDirectory, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(237, Short.MAX_VALUE))
+                .addContainerGap(310, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -801,6 +793,17 @@ public class LevelThree extends javax.swing.JInternalFrame {
         });
         btnFile.add(btnCloseAll);
 
+        btnMenuCheckIn.setText("Check In");
+        btnFile.add(btnMenuCheckIn);
+
+        btnMenuCheckout.setText("Check Out");
+        btnMenuCheckout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuCheckoutActionPerformed(evt);
+            }
+        });
+        btnFile.add(btnMenuCheckout);
+
         btnExit.setText("Exit");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -812,6 +815,15 @@ public class LevelThree extends javax.swing.JInternalFrame {
         jMenuBar1.add(btnFile);
 
         btnEdit.setText("Edit");
+
+        btnMenuTerminal.setText("Terminal");
+        btnMenuTerminal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuTerminalActionPerformed(evt);
+            }
+        });
+        btnEdit.add(btnMenuTerminal);
+
         jMenuBar1.add(btnEdit);
 
         setJMenuBar(jMenuBar1);
@@ -993,25 +1005,6 @@ public class LevelThree extends javax.swing.JInternalFrame {
         }
 
     }//GEN-LAST:event_btnDirectoryActionPerformed
-
-    private void btnEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmployeeActionPerformed
-        // TODO add your handling code here:
-        jPanelPatients.setVisible(false);
-        //jPanelRecords.setVisible(false);
-        jPanelTerminal.setVisible(true);
-        jPanelDirectory.setVisible(false);
-        //jPanelMyFiles.setVisible(false);
-        jPanelWelcome.setVisible(false);
-        //        JPanel employeePanel = new JPanel();
-        //        employeePanel.setBounds(10, 10, 10, 10);
-        //        jPanel2.add(employeePanel);
-        //        employeePanel.setVisible(true);
-        //        employeePanel.setBackground(Color.gray);
-        //        employeePanel.setSize(900, 500);
-        //     //   employeePanel.setLayout(jPanel2Layout);
-        //        System.out.println("New panel");
-        //
-    }//GEN-LAST:event_btnEmployeeActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         // TODO add your handling code here:
@@ -1258,25 +1251,59 @@ public class LevelThree extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void btnRunTerminalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRunTerminalActionPerformed
-//        // TODO add your handling code here:
-//        String terminalQuery = textTerminal.getText();
-//        System.out.println(terminalQuery);
-//        Statement statement;
-//        try {
-//            statement = con.createStatement();
-//            statement.executeUpdate(terminalQuery);
-//        } catch (SQLException ex) {
-//            System.out.println("Caught!");
-//        QueryExecuter de = new QueryExecuter();
+        // TODO add your handling code here:
+        String terminalQuery = textTerminal.getText();
+        System.out.println(terminalQuery);
+        Statement statement;
+        QueryExecuter de = new QueryExecuter();//        QueryExecuter de = new QueryExecuter();
 //        ResultSet rs = de.runQuery(con, terminalQuery);
 //        textTerminal.setText(rs);
-//            Logger.getLogger(LevelThree.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        
-//       
-//        
-//        
+        ResultSet rs = de.runQuery(con, terminalQuery);
+        textTerminal.setText("");
+        String holder = "";
+        try {
+            ResultSetMetaData rsmd = rs.getMetaData();
+            //System.out.println("querying SELECT * FROM XXX");
+            int columnsNumber = rsmd.getColumnCount();
+            while (rs.next()) {
+                for (int i = 1; i <= columnsNumber; i++) {
+                    if (i > 1) {
+                        textTerminal.append(",  ");
+                    }
+                    String columnValue = rs.getString(i);
+                    textTerminal.append(columnValue + " " + rsmd.getColumnName(i));
+                }
+                textTerminal.append("" + "\n");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(LevelThree.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnRunTerminalActionPerformed
+
+    private void btnMenuTerminalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuTerminalActionPerformed
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+        jPanelPatients.setVisible(false);
+        //jPanelRecords.setVisible(false);
+        jPanelTerminal.setVisible(true);
+        jPanelDirectory.setVisible(false);
+        //jPanelMyFiles.setVisible(false);
+        jPanelWelcome.setVisible(false);
+        //        JPanel employeePanel = new JPanel();
+        //        employeePanel.setBounds(10, 10, 10, 10);
+        //        jPanel2.add(employeePanel);
+        //        employeePanel.setVisible(true);
+        //        employeePanel.setBackground(Color.gray);
+        //        employeePanel.setSize(900, 500);
+        //     //   employeePanel.setLayout(jPanel2Layout);
+        //        System.out.println("New panel");
+        //
+    }//GEN-LAST:event_btnMenuTerminalActionPerformed
+
+    private void btnMenuCheckoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuCheckoutActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_btnMenuCheckoutActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1287,12 +1314,14 @@ public class LevelThree extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnDeletePatient;
     private javax.swing.JButton btnDirectory;
     private javax.swing.JMenu btnEdit;
-    private javax.swing.JButton btnEmployee;
     private javax.swing.JButton btnEmployeeAdd;
     private javax.swing.JButton btnEmployeeRemove;
     private javax.swing.JMenuItem btnExit;
     private javax.swing.JMenu btnFile;
     private javax.swing.JMenuItem btnLogout;
+    private javax.swing.JMenuItem btnMenuCheckIn;
+    private javax.swing.JMenuItem btnMenuCheckout;
+    private javax.swing.JMenuItem btnMenuTerminal;
     private javax.swing.JButton btnPatients;
     private javax.swing.JButton btnRunTerminal;
     private javax.swing.JButton btnSavePatient;
